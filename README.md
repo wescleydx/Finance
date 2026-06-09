@@ -21,12 +21,16 @@ Tecnologias utilizadas:
 
 O aplicativo utiliza o AsyncStorage para salvar a lista de ativos cadastrados pelo usuário.
 
+------------------------------------------------------------------------------------------------------------
+
 - Atualização automática:
 
 As cotações são atualizadas automaticamente a cada 30 segundos, conforme definido na constante:
 const REFRESH_MS = 30_000;
 
 Além da atualização automática, o usuário também pode atualizar manualmente a lista puxando a tela para baixo, por meio do RefreshControl.
+
+------------------------------------------------------------------------------------------------------------
 
 - Componente principal Metric
 
@@ -37,6 +41,8 @@ O componente Metric exibe informações resumidas de cada ativo, como:
 - volume negociado.
 
 Ele também permite alterar a cor do texto de acordo com o tipo de informação, como positivo ou negativo.
+
+------------------------------------------------------------------------------------------------------------
 
 - AssetCard
 
@@ -53,6 +59,8 @@ mínima e máxima;
 volume;
 horário da última cotação;
 botão para remover o ativo.
+
+------------------------------------------------------------------------------------------------------------
 
 - Componentes principais usados na interface
 SafeAreaProvider e useSafeAreaInsets
