@@ -13,25 +13,20 @@ Tecnologias utilizadas:
 - AsyncStorage
 - API brapi
 
-Documentação Resumida do Algoritmo — Radar B3
-Objetivo
+------------------------------------------------------------------------------------------------------------
 
-O algoritmo implementa um aplicativo mobile em React Native chamado Radar B3, voltado para acompanhamento rápido de ações e FIIs da B3. O usuário pode adicionar ativos por código, visualizar cotações atualizadas e remover ativos da lista.
-
-Armazenamento local:
+- Armazenamento local:
 
 O aplicativo utiliza o AsyncStorage para salvar a lista de ativos cadastrados pelo usuário.
 
-Atualização automática:
+- Atualização automática:
 
 As cotações são atualizadas automaticamente a cada 30 segundos, conforme definido na constante:
-
 const REFRESH_MS = 30_000;
 
 Além da atualização automática, o usuário também pode atualizar manualmente a lista puxando a tela para baixo, por meio do RefreshControl.
 
-Componentes principais
-Metric
+- Componente principal Metric
 
 O componente Metric exibe informações resumidas de cada ativo, como:
 
@@ -41,7 +36,7 @@ O componente Metric exibe informações resumidas de cada ativo, como:
 
 Ele também permite alterar a cor do texto de acordo com o tipo de informação, como positivo ou negativo.
 
-AssetCard
+- AssetCard
 
 O componente AssetCard representa o cartão visual de cada ativo cadastrado.
 
@@ -57,7 +52,7 @@ volume;
 horário da última cotação;
 botão para remover o ativo.
 
-Componentes principais usados na interface
+- Componentes principais usados na interface
 SafeAreaProvider e useSafeAreaInsets
 
-Usado para respeitar a área segura do celular, principalmente em iPhone com notch.
+Usado para respeitar a área segura do celular.
