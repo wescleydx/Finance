@@ -48,6 +48,7 @@ function formatDecimal(value) {
 }
 
 async function requestQuote(symbol) {
+  //Função para buscar os dados da API
   const response = await fetch(
     `https://brapi.dev/api/quote/${encodeURIComponent(symbol)}`
   );
@@ -65,6 +66,7 @@ async function requestQuote(symbol) {
 }
 
 function Metric({ label, value, tone }) {
+  // Exibe informações resumidas de cada ativo
   return (
     <View style={styles.metric}>
       <Text style={styles.metricLabel}>{label}</Text>
@@ -83,6 +85,7 @@ function Metric({ label, value, tone }) {
 }
 
 function AssetCard({ asset, quote, error, onRemove }) {
+  // Representa o cartão visual de cada ativo cadastrado.
   const change = quote?.regularMarketChangePercent || 0;
 
   return (
@@ -153,6 +156,7 @@ function AssetCard({ asset, quote, error, onRemove }) {
 }
 
 function Home() {
+  // SafeAreaProvider responsável por limitar a área utilizada pelo aplicativo, fazendo assim, compatibilidade com diferentes tipos de smartphones.
   const insets = useSafeAreaInsets();
   const [assets, setAssets] = useState([]);
   const [quotes, setQuotes] = useState({});
@@ -162,6 +166,7 @@ function Home() {
   const [refreshing, setRefreshing] = useState(false);
 
   const updateQuotes = useCallback(
+    // Busca a cotação de todos os ativos cadastrados.
     async (list = assets, quiet = false) => {
       if (!list.length) {
         setLoading(false);
@@ -195,6 +200,7 @@ function Home() {
   useEffect(() => {
     async function start() {
       try {
+        // O aplicativo utiliza o AsyncStorage para salvar a lista de ativos cadastrados pelo usuário.
         const savedAssets = await AsyncStorage.getItem(WATCHLIST_KEY);
         const list = savedAssets ? JSON.parse(savedAssets) : [];
         setAssets(list);
@@ -214,6 +220,7 @@ function Home() {
   }, [assets, updateQuotes]);
 
   async function addAsset() {
+    // Adicionar ações
     const cleanSymbol = symbol.trim().toUpperCase().replace('.SA', '');
     if (!/^[A-Z]{4}\d{1,2}$/.test(cleanSymbol)) {
       Alert.alert('Código inválido', 'Use um código como PETR4, SMFT3 ou MXRF11.');
@@ -236,6 +243,7 @@ function Home() {
   }
 
   function removeAsset(symbolToRemove) {
+    // Remove ação da lista
     Alert.alert('Remover ativo?', symbolToRemove, [
       { text: 'Cancelar', style: 'cancel' },
       {
@@ -332,6 +340,7 @@ function Home() {
 
 export default function App() {
   return (
+    // Limitação de área do aplicativo
     <SafeAreaProvider>
       <Home />
     </SafeAreaProvider>
@@ -339,6 +348,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  // Estilização
   page: { flex: 1, backgroundColor: palette.background },
   hero: {
     backgroundColor: palette.dark,
