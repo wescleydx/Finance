@@ -13,7 +13,9 @@ Tecnologias utilizadas:
 - AsyncStorage
 - API brapi
 
+
 ------------------------------------------------------------------------------------------------------------
+
 
 - Armazenamento local:
 
