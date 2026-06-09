@@ -28,7 +28,7 @@ O aplicativo utiliza o AsyncStorage para salvar a lista de ativos cadastrados pe
 As cotações são atualizadas automaticamente a cada 30 segundos, conforme definido na constante:
 const REFRESH_MS = 30_000;
 
-Além da atualização automática, o usuário também pode atualizar manualmente a lista puxando a tela para baixo, por meio do RefreshControl.
+Além da atualização automática, o usuário também pode atualizar manualmente a lista arrastando o dedo sobe a tela do smartphone, por meio do RefreshControl.
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -63,6 +63,7 @@ botão para remover o ativo.
 ------------------------------------------------------------------------------------------------------------
 
 - Componentes principais usados na interface
+- 
 SafeAreaProvider e useSafeAreaInsets
 
 Usado para respeitar a área segura do celular.
